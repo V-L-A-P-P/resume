@@ -1,0 +1,187 @@
+\documentclass{resume-faangpath}
+
+% --- Поддержка кириллицы ---
+\usepackage{fontspec}
+\setmainfont{Roboto}
+
+\usepackage{titlesec}
+
+\titleformat*{\section}{\Large\bfseries}
+
+
+\titlespacing{\section}{0pt}{12pt}{8pt}
+
+
+% Увеличиваем шрифт названий проектов
+\renewcommand{\resumeProjectHeading}[2]{%
+  \vspace{1mm}
+  {\large\textbf{#1}} \hfill {\small #2}%
+  \vspace{1mm}
+}
+
+% Полное переопределение \name для поддержки двух строк
+\renewcommand{\name}[2]{%
+  \begin{center}
+      {\Huge \bfseries #1}\\[2mm] % имя
+      {\large \textbf{#2}}       % должность
+  \end{center}
+}
+
+\definecolor{darkgray}{RGB}{40,40,40}
+
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=darkgray
+}
+
+\newcommand{\projectsep}{%
+  {\color{gray}\noindent\rule{\linewidth}{0.4pt}}%
+  \vspace{2mm}
+}
+
+\usepackage{enumitem}
+\setlist[itemize]{topsep=2pt, itemsep=4pt, parsep=0pt, partopsep=0pt}
+
+
+
+\begin{document}
+
+%-------------------- HEADER --------------------
+\name
+  {Апухтин Владислав Борисович}
+  {ML Engineer / Data Scientist (Intern/Junior)}
+
+
+\contact{+7-915-062-2993}{\href{mailto:apukhtin00@inbox.ru}{apukhtin00@inbox.ru}}{Москва}{\href{https://t.me/kyl0q}{Tg: @kyl0q}}{\href{https://github.com/V-L-A-P-P}{github.com/V-L-A-P-P}}
+
+%-------------------- SUMMARY --------------------
+\begin{summary}
+Студент направления «Прикладное машинное обучение». Разрабатываю высоконадёжные ML-решения: от подготовки данных и построения моделей до развёртывания сервисов (FastAPI + Docker). Реализовал проекты в предсказательной аналитике, NLP, RAG и рекомендательных системах. Участвую в олимпиадах, хакатонах, публикую статьи по ML. Нацелен на развитие и решение прикладных ML-задач в команде профессионалов.
+\end{summary}
+
+%-------------------- EDUCATION --------------------
+\section{Образование}
+\resumeSubheading
+{Финансовый университет при Правительстве РФ}{2024 -- 2028}
+{Факультет информационных технологий и анализа больших данных}{Москва}
+{Направление/профиль: прикладная математика и информатика/прикладное машинное обучение}
+
+\textbf{Курсы:}
+\begin{itemize}[nosep]
+    \item \textit{Практический Machine Learning (Сертификат с отличием)} — AI Education \hfill 2025
+    \item \textit{Продвинутые методы машинного обучения (Сертификат с отличием)} — AI Education \hfill 2025
+    \item \textit{Практический Deep Learning (Сертификат с отличием)} — AI Education \hfill 2025
+    \item \textit{Введение в Data Science и машинное обучение (Сертификат с отличием)} — Karpov Courses \hfill 2025
+\end{itemize}
+
+%-------------------- EXPERIENCE --------------------
+\section{Опыт работы}
+\resumeSubheading
+{Algorithm Engineer (Project-based)}{Сентябрь 2025 -- н.в.}
+{RWB — оптимизация вещания рекламных кампаний (в рамках KIM Project) }{Москва}
+
+\resumeItemListStart
+  \resumeItem{Разрабатываю алгоритм оптимизации рекламного вещания с учётом бизнес-ограничений, овербукинга и равномерной ротации показов.}
+  \resumeItem{Проектирую алгоритмическое решение на базе \textbf{комбинаторной оптимизации} для индустриального продукта.}
+\resumeItemListEnd
+
+
+
+
+%-------------------- PROJECTS --------------------
+\section{Проекты}
+\resumeProjectHeading
+{\href{https://github.com/V-L-A-P-P/Bankruptcy_Prediction_System}{Bankruptcy Prediction System} — production-ready ML-сервис для оценки риска банкротства}{}
+
+\vspace{-4mm}
+{\textcolor{gray}{
+Python | Pandas | Scikit-learn | CatBoost | Optuna | SHAP | FastAPI | PyTest | Docker
+}}
+
+
+\resumeItemListStart
+  \resumeItem{Собрал и структурировал крупный финансовый датасет (≈700k компаний, 110 признаков) с выраженным дисбалансом классов; провёл глубокий \textbf{EDA} и \textbf{feature engineering} (125 доменных и производных признаков).}
+  \resumeItem{Построил модели и настроил гиперпараметры через Optuna с учётом сильного дисбаланса (1/250); финальная модель достигла \textbf{weighted accuracy = 0.87}.}
+  \resumeItem{Окалибровал вероятности с помощью Isotonic Regression и внедрил интерпретацию модели через \textbf{SHAP}.}
+  \resumeItem{Реализовал \textbf{полный ML-пайплайн} обучения и инференса, тестирование (\textbf{PyTest}) и деплой сервиса (\textbf{FastAPI}, \textbf{Docker}).}
+\resumeItemListEnd
+
+
+
+\projectsep
+
+
+
+
+\resumeProjectHeading
+{\href{https://github.com/V-L-A-P-P/AURA}{AURA (Augmented Understanding \& Retrieval for Answers)} — интеллектуальная RAG-система поиска и генерации ответов по финтех-корпусу}{}
+
+{\textcolor{gray}{
+Python | FAISS (HNSW) | Sentence-Transformers | Cross-Encoder | Graph Ranking | LLM | NetworkX | FastAPI | Docker
+}}
+
+
+\resumeItemListStart
+\resumeItem{Реализовал \textbf{гибридный retrieval} (TF-IDF + FAISS + двухэтапный cross-encoder reranking на \textbf{transformers}), обеспечив прирост качества относительно базового RAG.}
+\resumeItem{Внедрил \textbf{LLM-based query rewriting} на базе instruction-tuned моделей для повышения полноты и релевантности поиска.}
+\resumeItem{Построил пайплайн подготовки данных с несколькими стратегиями чанкинга (базовый, семантический, рекурсивный) и предварительным препроцессингом документов.}
+\resumeItem{Разработал \textbf{граф связей между чанками} и интегрировал его в retrieval-этап для graph-augmented расширения кандидатов и reranking; реализовал \textbf{end-to-end пайплайн} с тестами и деплоем.}
+\resumeItemListEnd
+
+
+\projectsep
+
+
+\resumeProjectHeading
+{\href{https://github.com/V-L-A-P-P/Movie_Recommendation_System}{Movie Recommendation System} — ML-модель персональных рекомендаций фильмов}{}
+
+
+{\textcolor{gray}{
+Python | Pandas | NumPy | SciPy | Scikit-learn | Implicit ALS | Collaborative Filtering | Ranking Metrics
+}}
+
+\resumeItemListStart
+  \resumeItem{Разработал персонализированную рекомендательную систему фильмов с использованием \textbf{User-Based CF}, \textbf{Item-Based CF} и \textbf{confidence-weighted implicit ALS}.}
+  \resumeItem{Реализовал \textbf{cold-start handling} и \textbf{explainable рекомендации}: явное объяснение выбора фильмов через вклад похожих ранее просмотренных items (item–item similarity).}
+  \resumeItem{Спроектировал \textbf{единый evaluation pipeline} и провёл сравнение моделей по \textbf{Recall@10}, \textbf{NDCG@10} и \textbf{MAP@10}}
+\resumeItemListEnd
+
+
+
+
+%-------------------- SKILLS --------------------
+\section{Навыки}
+
+\resumeSkillListStart
+
+  \resumeSkill{Языки и инструменты}
+    {Python, SQL, Git, Bash, Linux}
+
+  \resumeSkill{ML и анализ данных}
+    {Pandas, NumPy, Scikit-learn, CatBoost, XGBoost, LightGBM, Optuna, SHAP}
+
+  \resumeSkill{Deep Learning}
+    {PyTorch, Transformers, HuggingFace}
+
+  \resumeSkill{MLOps и сервисы}
+    {FastAPI, Docker, PyTest}
+
+  \resumeSkill{Математика}
+    {линейная алгебра, матанализ, теория вероятностей, математическая статистика}
+
+\resumeSkillListEnd
+
+%-------------------- EXTRA --------------------
+\section{Дополнительно}
+\resumeItemListStart
+  \resumeItem{Активно участвую в хакатонах и соревнованиях по анализу данных, помогаю в организации хакатонов}
+  \resumeItem{Пишу статьи и регулярно изучаю новые подходы в ML/Deep Learning.}
+
+  \resumeItem{Языки: Русский — Native, Английский — B2, Немецкий — A2}
+  \resumeItem{Личные качества: ответственность, аналитическое мышление, стрессоустойчивость, коммуникабельность}
+
+  
+\resumeItemListEnd
+
+\end{document}
