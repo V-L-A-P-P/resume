@@ -5,17 +5,20 @@
 \setmainfont{Roboto}
 
 \usepackage{titlesec}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
 
 \titleformat*{\section}{\Large\bfseries}
 
 
-\titlespacing{\section}{0pt}{12pt}{8pt}
+\titlespacing{\section}{0pt}{20pt}{8pt}
 
 
-% Увеличиваем шрифт названий проектов
+% Увеличиваем шрифт названий проектов + добавляем дату над названием
 \renewcommand{\resumeProjectHeading}[2]{%
   \vspace{1mm}
-  {\large\textbf{#1}} \hfill {\small #2}%
+  {\small \textcolor{darkgray}{#2}}\par
+  {\large\textbf{#1}}%
   \vspace{1mm}
 }
 
@@ -27,7 +30,7 @@
   \end{center}
 }
 
-\definecolor{darkgray}{RGB}{40,40,40}
+\definecolor{darkgray}{RGB}{105, 105, 105}
 
 
 \hypersetup{
@@ -60,20 +63,6 @@
 Студент направления «Прикладное машинное обучение». Разрабатываю высоконадёжные ML-решения: от подготовки данных и построения моделей до развёртывания сервисов (FastAPI + Docker). Реализовал проекты в предсказательной аналитике, NLP, RAG и рекомендательных системах. Участвую в олимпиадах, хакатонах, публикую статьи по ML. Нацелен на развитие и решение прикладных ML-задач в команде профессионалов.
 \end{summary}
 
-%-------------------- EDUCATION --------------------
-\section{Образование}
-\resumeSubheading
-{Финансовый университет при Правительстве РФ}{2024 -- 2028}
-{Факультет информационных технологий и анализа больших данных}{Москва}
-{Направление/профиль: прикладная математика и информатика/прикладное машинное обучение}
-
-\textbf{Курсы:}
-\begin{itemize}[nosep]
-    \item \textit{Практический Machine Learning (Сертификат с отличием)} — AI Education \hfill 2025
-    \item \textit{Продвинутые методы машинного обучения (Сертификат с отличием)} — AI Education \hfill 2025
-    \item \textit{Практический Deep Learning (Сертификат с отличием)} — AI Education \hfill 2025
-    \item \textit{Введение в Data Science и машинное обучение (Сертификат с отличием)} — Karpov Courses \hfill 2025
-\end{itemize}
 
 %-------------------- EXPERIENCE --------------------
 \section{Опыт работы}
@@ -81,20 +70,20 @@
 {Algorithm Engineer (Project-based)}{Сентябрь 2025 -- н.в.}
 {RWB — оптимизация вещания рекламных кампаний (в рамках KIM Project) }{Москва}
 
+\vspace{-0mm}
+
 \resumeItemListStart
   \resumeItem{Разрабатываю алгоритм оптимизации рекламного вещания с учётом бизнес-ограничений, овербукинга и равномерной ротации показов.}
   \resumeItem{Проектирую алгоритмическое решение на базе \textbf{комбинаторной оптимизации} для индустриального продукта.}
 \resumeItemListEnd
 
-
-
-
+\vspace{-0mm}
 %-------------------- PROJECTS --------------------
 \section{Проекты}
 \resumeProjectHeading
-{\href{https://github.com/V-L-A-P-P/Bankruptcy_Prediction_System}{Bankruptcy Prediction System} — production-ready ML-сервис для оценки риска банкротства}{}
+{\href{https://github.com/V-L-A-P-P/Bankruptcy_Prediction_System}{\uline{Bankruptcy Prediction System}} — production-ready ML-сервис для оценки риска банкротства}
+{Май 2025 -- Июнь 2025}
 
-\vspace{-4mm}
 {\textcolor{gray}{
 Python | Pandas | Scikit-learn | CatBoost | Optuna | SHAP | FastAPI | PyTest | Docker
 }}
@@ -115,7 +104,8 @@ Python | Pandas | Scikit-learn | CatBoost | Optuna | SHAP | FastAPI | PyTest | D
 
 
 \resumeProjectHeading
-{\href{https://github.com/V-L-A-P-P/AURA}{AURA (Augmented Understanding \& Retrieval for Answers)} — интеллектуальная RAG-система поиска и генерации ответов по финтех-корпусу}{}
+{\href{https://github.com/V-L-A-P-P/AURA}{\uline{AURA}} — интеллектуальная RAG-система поиска и генерации ответов по финтех-корпусу}
+{Август 2025 -- Сентябрь 2025}
 
 {\textcolor{gray}{
 Python | FAISS (HNSW) | Sentence-Transformers | Cross-Encoder | Graph Ranking | LLM | NetworkX | FastAPI | Docker
@@ -134,7 +124,9 @@ Python | FAISS (HNSW) | Sentence-Transformers | Cross-Encoder | Graph Ranking | 
 
 
 \resumeProjectHeading
-{\href{https://github.com/V-L-A-P-P/Movie_Recommendation_System}{Movie Recommendation System} — ML-модель персональных рекомендаций фильмов}{}
+{\href{https://github.com/V-L-A-P-P/Movie_Recommendation_System}{\uline{Movie Recommendation System}} — ML-модель персональных рекомендаций фильмов}
+{Июнь 2025 -- Июль 2025}
+
 
 
 {\textcolor{gray}{
@@ -162,7 +154,7 @@ Python | Pandas | NumPy | SciPy | Scikit-learn | Implicit ALS | Collaborative Fi
     {Pandas, NumPy, Scikit-learn, CatBoost, XGBoost, LightGBM, Optuna, SHAP}
 
   \resumeSkill{Deep Learning}
-    {PyTorch, Transformers, HuggingFace}
+    {PyTorch, Transformers, RAG, HuggingFace}
 
   \resumeSkill{MLOps и сервисы}
     {FastAPI, Docker, PyTest}
@@ -171,6 +163,22 @@ Python | Pandas | NumPy | SciPy | Scikit-learn | Implicit ALS | Collaborative Fi
     {линейная алгебра, матанализ, теория вероятностей, математическая статистика}
 
 \resumeSkillListEnd
+
+%-------------------- EDUCATION --------------------
+\section{Образование}
+\resumeSubheading
+{Финансовый университет при Правительстве РФ}{2024 -- 2028}
+{Факультет информационных технологий и анализа больших данных}{Москва}
+{Направление/профиль: прикладная математика и информатика/прикладное машинное обучение}
+
+\textbf{Курсы:}
+\begin{itemize}[nosep]
+    \item \textit{Практический Machine Learning (Сертификат с отличием)} — AI Education \hfill 2025
+    \item \textit{Продвинутые методы машинного обучения (Сертификат с отличием)} — AI Education \hfill 2025
+    \item \textit{Практический Deep Learning (Сертификат с отличием)} — AI Education \hfill 2025
+    \item \textit{Введение в Data Science и машинное обучение (Сертификат с отличием)} — Karpov Courses \hfill 2025
+\end{itemize}
+
 
 %-------------------- EXTRA --------------------
 \section{Дополнительно}
