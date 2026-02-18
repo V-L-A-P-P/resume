@@ -91,7 +91,7 @@ Python | Pandas | Scikit-learn | CatBoost | Optuna | SHAP | FastAPI | PyTest | D
 
 \resumeItemListStart
   \resumeItem{Собрал и структурировал крупный финансовый датасет (≈700k компаний, 110 признаков) с выраженным дисбалансом классов; провёл глубокий \textbf{EDA} и \textbf{feature engineering} (125 доменных и производных признаков).}
-  \resumeItem{Построил модели и настроил гиперпараметры через Optuna с учётом сильного дисбаланса (1/250); финальная модель достигла \textbf{weighted accuracy = 0.87}.}
+  \resumeItem{Построил модели, отобрал лучшую и настроил гиперпараметры через Optuna с учётом сильного дисбаланса (1/250); финальная модель Catboost достигла \textbf{weighted accuracy = 0.87}.}
   \resumeItem{Окалибровал вероятности с помощью Isotonic Regression и внедрил интерпретацию модели через \textbf{SHAP}.}
   \resumeItem{Реализовал \textbf{полный ML-пайплайн} обучения и инференса, тестирование (\textbf{PyTest}) и деплой сервиса (\textbf{FastAPI}, \textbf{Docker}).}
 \resumeItemListEnd
@@ -114,9 +114,13 @@ Python | FAISS (HNSW) | Sentence-Transformers | Cross-Encoder | Graph Ranking | 
 
 \resumeItemListStart
 \resumeItem{Реализовал \textbf{гибридный retrieval} (TF-IDF + FAISS + двухэтапный cross-encoder reranking на \textbf{transformers}), обеспечив прирост качества относительно базового RAG.}
-\resumeItem{Внедрил \textbf{LLM-based query rewriting} на базе instruction-tuned моделей для повышения полноты и релевантности поиска.}
+\resumeItem{Внедрил \textbf{LLM-based query rewriting} на базе instruction-tuned моделей для повышения релевантности поиска.}
 \resumeItem{Построил пайплайн подготовки данных с несколькими стратегиями чанкинга (базовый, семантический, рекурсивный) и предварительным препроцессингом документов.}
-\resumeItem{Разработал \textbf{граф связей между чанками} и интегрировал его в retrieval-этап для graph-augmented расширения кандидатов и reranking; реализовал \textbf{end-to-end пайплайн} с тестами и деплоем.}
+\resumeItem{Разработал \textbf{граф связей между чанками} и интегрировал его в retrieval-этап для graph-augmented расширения кандидатов и reranking.}
+\resumeItem{Реализовал \textbf{end-to-end пайплайн RAG} с \textbf{LLM answer generation}: ответы по найденным документам с указанием источников; тестирование и деплой (\textbf{PyTest, FastAPI, Docker}).}
+
+
+
 \resumeItemListEnd
 
 
