@@ -1,0 +1,89 @@
+% Самостоятельный документ: отдельный .cls не требуется.
+% Должность и даты МТС подтверждены пользователем 28.09.2026.
+% Основа: исходное резюме, отчёт МТС и дополнительная анкета пользователя.
+% Дата акселератора Газпромбанка и сведения о новых проектах не предоставлены.
+\documentclass[10pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{cmunrm.otf}[BoldFont=cmunbx.otf,ItalicFont=cmunti.otf,BoldItalicFont=cmunbi.otf]
+\usepackage[russian]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\definecolor{linkgray}{RGB}{65,65,65}
+\hypersetup{colorlinks=true,urlcolor=linkgray,pdftitle={Апухтин Владислав — ML Engineer},pdfauthor={Апухтин Владислав Борисович}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlist[itemize]{leftmargin=13pt,topsep=2pt,itemsep=1pt,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{5pt}{2pt}
+\newcommand{\entry}[4]{\textbf{#1}\hfill{\small #2}\par\textit{#3}\hfill{\small #4}\par}
+\newcommand{\project}[3]{\textbf{\href{#2}{#1}}\hfill{\small #3}\par}
+\newcommand{\stack}[1]{{\small\color{linkgray}#1}\par}
+\begin{document}
+
+\begingroup\centering
+{\LARGE\bfseries Апухтин Владислав Борисович}\par
+\vspace{2pt}
+{\large ML Engineer}\par
+\vspace{3pt}
+{\small Москва\enspace|\enspace +7-915-062-2993\enspace|\enspace
+\href{mailto:apukhtin00@inbox.ru}{apukhtin00@inbox.ru}\par
+\href{https://t.me/kyl0q}{Telegram: @kyl0q}\enspace|\enspace
+\href{https://github.com/V-L-A-P-P}{github.com/V-L-A-P-P}}
+\par\endgroup
+
+\section*{Профиль}
+ML Engineer с коммерческим опытом полного цикла разработки скоринговых моделей для высоконагруженной платформы (50k RPC/s) — от работы с данными и экспериментами до A/B-тестов и внедрения в production. Работал с большими данными в Spark и развивал ML-инфраструктуру. Также разрабатывал NLP/LLM-решения: построил многоэтапную RAG-систему с гибридным поиском и двухступенчатым переранжированием.
+
+\section{Опыт работы — 1 год 1 месяц}
+\textbf{ML Engineer — MTS Web Services, AdTech}\hfill Апрель 2026 — н.\,в.\par
+\begin{itemize}[itemsep=2pt]
+\item Разработал обновлённую \textbf{VTR-модель}: исправил sampling и разбиение данных, доработал исторические признаки и групповую валидацию, отобрал признаки, настроил CatBoost через Optuna и выполнил калибровку.
+\item Подготовил экспериментальный production-контур: автоматизировал ежедневный сбор словарей в Airflow, доработал \textbf{Go-инференс} и проверил совпадение расчётов с Python. Спроектировал и сопровождал A/B-тесты; фактический VTR вырос на \textbf{2,5 п.\,п.} статистически значимо.
+\item Разработал прототипы интеграции VR- и CTR-моделей с Feature Store. В эксперименте для CTR сократил подготовку данных с \textbf{69 до 23 минут} и пиковую локальную память на \textbf{43\%}; ROC-AUC вырос с 0,82 до 0,83 на выбранном периоде.
+\item Перенёс production ML-процессы на новый кластер, унифицировал пайплайны, настроил Spark, HDFS, Docker, CI/CD, Airflow и воспроизводимое окружение; проверил стабильность работы в production.
+\item Проводил комплексные исследования качества данных, моделей, признаков и целевой разметки; сопровождал жизненный цикл моделей и их работу в рекламных кампаниях.
+\end{itemize}
+
+\textbf{Algorithm Engineer — RWB (KIM Project)}\hfill Сентябрь 2025 — март 2026\par
+\begin{itemize}
+\item Разработал алгоритм генерации расписания рекламного вещания с учётом бизнес-ограничений, овербукинга и равномерного распределения показов по времени; уменьшил долю ручных правок на \textbf{50\%}.
+\end{itemize}
+
+\section{Проекты}
+\project{AURA — RAG-система по финтех-корпусу}{https://github.com/V-L-A-P-P/AURA}{Август — сентябрь 2025}
+\begin{itemize}
+\item Реализовал гибридный поиск TF-IDF + FAISS, cross-encoder reranking, LLM query rewriting и граф связей между чанками для расширения кандидатов.
+\item Разработал подготовку документов и генерацию ответов с источниками; реализовал FastAPI-сервис, тестирование и развёртывание с Docker.
+\end{itemize}
+
+\project{Bankruptcy Prediction System — оценка риска банкротства}{https://github.com/V-L-A-P-P/Bankruptcy_Prediction_System}{Май — июнь 2025}
+\begin{itemize}
+\item Самостоятельно собрал и обработал данные примерно по \textbf{700 тыс. компаний}, разработал 125 доменных и производных признаков. Настроил CatBoost/Optuna при дисбалансе 1:250: \textbf{weighted accuracy = 0,87}.
+\item Реализовал калибровку Isotonic Regression, SHAP, пайплайн обучения и инференса, тесты PyTest и сервис на FastAPI/Docker.
+\end{itemize}
+
+\section{Навыки}
+\textbf{Языки:} Python, SQL, Go, Bash.\par
+\textbf{ML и анализ:} CatBoost, XGBoost, scikit-learn, Optuna, pandas, NumPy, Matplotlib, Seaborn.\par
+\textbf{Данные:} PySpark, Spark SQL, S3, Feature Store.\par
+\textbf{DL и NLP:} PyTorch, Transformers, HuggingFace, RAG, FAISS, Sentence-Transformers.\par
+\textbf{Инфраструктура:} Apache Airflow, Docker, FastAPI, PyTest, ClearML, MLflow, Jupyter, Git.
+
+\section{Образование}
+\textbf{Финансовый университет при Правительстве РФ}\hfill 2024 — 2028\par
+Прикладная математика и информатика; профиль «Прикладное машинное обучение».\par
+\textbf{Курсы:}
+\begin{itemize}[nosep]
+\item Карьерный акселератор Газпромбанка «Machine Learning» — диплом с отличием.
+\item AI Education — «Практический Machine Learning», «Продвинутые методы машинного обучения», «Практический Deep Learning»; сертификаты с отличием.
+\item «Введение в Data Science и машинное обучение» — Karpov Courses, сертификат с отличием.
+\end{itemize}
+
+\vspace{3pt}
+Соавтор статьи о квантовых и квантово-гибридных моделях финансовых рядов (журнал из Перечня ВАК).\par
+\textbf{Языки:} русский — родной, английский — B2, немецкий — A2.
+\end{document}
